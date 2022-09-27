@@ -6,29 +6,39 @@
 package models;
 
 import java.beans.*;
+import java.io.*;
 import java.io.Serializable;
 
+/**
+ *
+ * @author Miller Gee
+ */
+public class Note implements Serializable {
+    
+    private String title;
+    private String contents;
 
-public class NewBean implements Serializable {
-    
-    public static final String PROP_SAMPLE_PROPERTY = "sampleProperty";
-    
-    private String sampleProperty;
     
     private PropertyChangeSupport propertySupport;
     
-    public NewBean() {
-        propertySupport = new PropertyChangeSupport(this);
+    public Note() {
+        title = "";
+        contents = "";
     }
     
-    public String getSampleProperty() {
-        return sampleProperty;
+    public String getTitle() {
+        return title;
     }
     
-    public void setSampleProperty(String value) {
-        String oldValue = sampleProperty;
-        sampleProperty = value;
-        propertySupport.firePropertyChange(PROP_SAMPLE_PROPERTY, oldValue, sampleProperty);
+    public void setTitle(String value) {
+      this.title = value;
+    }
+    public String getContents() {
+        return contents;
+    }
+    
+    public void setContents(String value) {
+      this.contents = value;
     }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {
